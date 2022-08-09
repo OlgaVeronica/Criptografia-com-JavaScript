@@ -3,9 +3,34 @@ body{
     padding: 0;
     background: #EAD8EB;
     display: grid;
-    grid-template-columns: 100px 1fr 1fr 100px;
-    grid-template-rows: 100px 1fr 1fr 100px;
+    grid-template-columns: 50px 1fr 1fr 50px;
+    grid-template-rows: 50px 1fr 1fr 50px;
     height: 100vh;
+}
+
+.titulo{
+    grid-column: 3;
+    grid-row: 2;
+    place-self: center;
+    font-size: 2.5rem;
+    letter-spacing: .5rem;
+    font-family: monospace;
+    color: rgb(174, 174, 174);
+    transform: rotate(450deg);
+    text-transform: uppercase;
+}
+
+.titulo2{
+    grid-column: 2;
+    grid-row: 3;
+    place-self: center;
+    font-size: 2.5rem;
+    letter-spacing: .5rem;
+    font-family: monospace;
+    color: rgb(174, 174, 174);
+    transform: rotate(270deg);
+    text-transform: uppercase;
+
 }
 
 .container{
@@ -13,6 +38,7 @@ body{
 }
 
 .container h1{
+    font-size: 2rem;
     text-align: center;
     font-family: monospace;
 }
@@ -29,5 +55,36 @@ body{
     grid-column: 3;
     grid-row: 3;
 }
+
+.bloco{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: monospace;
+    font-size: 1.5rem;
+    gap: 50px;
+
+}
+
+.mensagem, .resultado{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input{
+    font-size: 1.25rem;
+}
+
+#numero{
+    width: 70px;
+    text-align: center;
+}
+
+#resultado-descriptografado{
+   
+}
+
 
 
