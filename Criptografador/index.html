@@ -24,17 +24,16 @@
         <div class="bloco">
             <div class="mensagem">
                 <label for="">Insira a sua mensagem aqui: </label>
-                <input type="text" id="inserirMensagemCrip">
+                <input type="text" id="inputMensagemCrip">
             </div>
 
             <div class="chave">
-                <label for="">Escolha a chave:</label>
-                <input type="number" id="inserirNumeroCrip" min="0" max="26">
+                <label for="">Escolha a chave: <input type="number" id="inputNumeroCrip" min="0" max="26"></label>
             </div>
 
             <div class="resultado">
                 <label for="">Mensagem Criptografada:</label>
-                <label id="resultadoCrip"></label>
+                <p id="resultadoCrip"></p>
             </div>
 
         </div>
@@ -45,12 +44,12 @@
         <div class="bloco">
             <div class="mensagem">
                 <label for="">Insira a sua mensagem aqui: </label>
-                <input type="text" id="inserirMensagemDescrip">
+                <input type="text" id="inputMensagemDescrip">
             </div>
 
             <div class="chave">
                 <label for="">Escolha a chave:</label>
-                <input type="number" id="inserirNumeroDescrip" min="0" max="26">
+                <input type="number" id="inputNumeroDescrip" min="0" max="26">
             </div>
             <div class="resultado">
                 <label for="">Mensagem Descriptografada:</label>
@@ -59,24 +58,9 @@
         </div>
     </div>
 
-    <!-- function calculate() {
-        var input = document.getElementById("input").value.toUpperCase();
-        var result = "";
-
-        for(var i = 0; i<input.length; i++){ //Passa por cada caracter do input
-
-            if(input[i] === " "){
-                result += " "
-                continue
-            }
-            var posicaoDaLetraNoAlfabeto = input.charCodeAt(i)-64; //Identifica qual letra é do alfabeto
-            var letraComDeslocamento = (posicaoDaLetraNoAlfabeto - key) % 26; //Faz o deslocamento de César e mantém dentro do alfabeto (26 letras)
-            letraComDeslocamento = letraComDeslocamento == 0 ? 26 : letraComDeslocamento; //MOD retornar 0 caso o resultado seja 26, tem que tratar isso
-            result += values[letraComDeslocamento-1]; //Faz -1 porque a letra 1 (A) está no índice 0 do teu array.
-        } -->
-
     <footer class="copy">
         <p>Olga Veronica, todos os direitos reservados - 2022. </p>
     </footer>
+    <script src="./script.js"></script>
 </body>
 </html>
