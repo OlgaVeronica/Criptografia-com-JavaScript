@@ -1,38 +1,130 @@
+
+<!-- Olga Veronica de Andrade Silva - 3º A Informática -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Criptografia, cifra de cesar">
-    <meta name="description" content="Criptografador e descriptografador de mensagens com Cifra de César">
-    <link rel="stylesheet" href="style.css">
-    <title>Cifra de César</title>
+    <meta name="keywords" content="Criptografia">
+    <meta name="description" content="Criptografador e descriptografador de mensagens">
+    <title>Criptografia</title>
+    
+    <style>
+body{
+    margin: 0;
+    padding: 0;
+    background: #EAD8EB;
+    display: grid;
+    grid-template-columns: 50px 1fr 1fr 50px;
+    grid-template-rows: 50px 1fr 1fr 50px;
+    height: 100vh;
+}
+
+.titulo{
+    grid-column: 3;
+    grid-row: 2;
+    place-self: center;
+    font-size: 2.5rem;
+    letter-spacing: .5rem;
+    font-family: monospace;
+    color: rgb(174, 174, 174);
+    /* transform: rotate(450deg); */
+    text-transform: uppercase;
+    word-break: break-all;
+
+}
+
+.titulo2{
+    grid-column: 2;
+    grid-row: 3;
+    place-self: center;
+    font-size: 2.5rem;
+    letter-spacing: .5rem;
+    font-family: monospace;
+    color: rgb(174, 174, 174);
+    transform: rotateY(180deg);
+    text-transform: uppercase;
+    word-break: break-all;
+}
+
+.container{
+    padding-top: 20px;
+    max-width: 100%;
+}
+
+.container h1{
+    font-size: 2rem;
+    text-align: center;
+    font-family: monospace;
+}
+
+.criptografador{
+    background: #9A93F5;
+    grid-column: 2;
+    grid-row: 2;
+
+}
+
+.descriptografador{
+    background: #D093F5;
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.bloco{
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: monospace;
+    font-size: 1.5rem;
+    gap: 30px;
+
+}
+
+.mensagem, .resultado{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input{
+    font-size: 1.25rem;
+}
+
+.copy{
+    grid-column: 2 / span 3;
+    grid-row: 4;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1rem;
+}
+    </style>
 </head>
+
 <body>
     <div class="titulo">
-        <h1>Cifra <br>de <br>César</h1>
+        <h1>Encrypt</h1>
     </div>
 
     <div class="titulo2">
-        <h1>Cifra <br>de <br>César</h1>
+        <h1>Decrypt</h1>
     </div>
 
     <div class="container criptografador">
         <h1>Criptografador</h1>
 
         <div class="bloco">
+            
             <div class="mensagem">
                 <label for="">Insira a sua mensagem aqui: </label>
                 <input type="text" id="inputMensagemCrip">
             </div>
 
-            <div class="chave">
-                <label for="">Escolha a chave: <input type="number" id="inputNumeroCrip" min="0" max="26"></label>
-            </div>
-
             <div class="resultado">
-                <label for="">Mensagem Criptografada:</label>
                 <p id="resultadoCrip"></p>
             </div>
 
@@ -42,25 +134,104 @@
         <h1>Descriptografador</h1>
         
         <div class="bloco">
+
             <div class="mensagem">
                 <label for="">Insira a sua mensagem aqui: </label>
                 <input type="text" id="inputMensagemDescrip">
             </div>
 
-            <div class="chave">
-                <label for="">Escolha a chave:</label>
-                <input type="number" id="inputNumeroDescrip" min="0" max="26">
-            </div>
             <div class="resultado">
-                <label for="">Mensagem Descriptografada:</label>
                 <label id="resultadoDescrip"></label>
             </div>
+
         </div>
     </div>
 
     <footer class="copy">
-        <p>Olga Veronica, todos os direitos reservados - 2022. </p>
+        <p>Olga Veronica, todos os direitos reservados - 2022.</p>
     </footer>
-    <script src="./script.js"></script>
+
+    <script>
+        let mensagemInseridaCrip = document.getElementById("inputMensagemCrip")
+        const mensagemCriptografada = document.getElementById("resultadoCrip")
+
+        let mensagemInseridaDescrip = document.getElementById("inputMensagemDescrip")
+        const mensagemDescriptografada = document.getElementById("resultadoDescrip")
+
+        function Criptografar (mensagem){
+            mensagem = mensagem.toLowerCase()
+            mensagem = mensagem.replace(/a/g, "&")
+            mensagem = mensagem.replace(/b/g, "8")
+            mensagem = mensagem.replace(/c/g, ",")
+            mensagem = mensagem.replace(/d/g, "%")
+            mensagem = mensagem.replace(/e/g, "!")
+            mensagem = mensagem.replace(/f/g, "¨")
+            mensagem = mensagem.replace(/g/g, "@")
+            mensagem = mensagem.replace(/h/g, "*")
+            mensagem = mensagem.replace(/i/g, "¬")
+            mensagem = mensagem.replace(/j/g, "/")
+            mensagem = mensagem.replace(/k/g, "+")
+            mensagem = mensagem.replace(/l/g, "$")
+            mensagem = mensagem.replace(/m/g, "(")
+            mensagem = mensagem.replace(/n/g, "¿")
+            mensagem = mensagem.replace(/o/g, "#")
+            mensagem = mensagem.replace(/p/g, "¢")
+            mensagem = mensagem.replace(/q/g, "³")
+            mensagem = mensagem.replace(/r/g, "=")
+            mensagem = mensagem.replace(/s/g, ">")
+            mensagem = mensagem.replace(/t/g, "§")
+            mensagem = mensagem.replace(/u/g, "צ")
+            mensagem = mensagem.replace(/v/g, "£")
+            mensagem = mensagem.replace(/w/g, "<")
+            mensagem = mensagem.replace(/x/g, "|")
+            mensagem = mensagem.replace(/y/g, ";")
+            mensagem = mensagem.replace(/z/g, "{")
+            mensagem = mensagem.replace(/ /g, "~")
+            
+            mensagemCriptografada.innerHTML = `<p>${mensagem}</p>`;
+        }
+
+        mensagemInseridaCrip.addEventListener("input", function(){
+            Criptografar(this.value)
+            console.log(this.value)
+        })
+
+
+        function Descriptografar(mensagem){
+            mensagem = mensagem.replace(/\&/g, "a")
+            mensagem = mensagem.replace(/\8/g, "b")
+            mensagem = mensagem.replace(/\,/g, "c")
+            mensagem = mensagem.replace(/\%/g, "d")
+            mensagem = mensagem.replace(/\!/g, "e")
+            mensagem = mensagem.replace(/\¨/g, "f")
+            mensagem = mensagem.replace(/\@/g, "g")
+            mensagem = mensagem.replace(/\"/g, "h")
+            mensagem = mensagem.replace(/\¬/g, "i")
+            mensagem = mensagem.replace(/\//g, "j")
+            mensagem = mensagem.replace(/\+/g, "k")
+            mensagem = mensagem.replace(/\$/g, "l")
+            mensagem = mensagem.replace(/\(/g, "m")
+            mensagem = mensagem.replace(/\¿/g, "n")
+            mensagem = mensagem.replace(/\#/g, "o")
+            mensagem = mensagem.replace(/\¢/g, "p")
+            mensagem = mensagem.replace(/\³/g, "q")
+            mensagem = mensagem.replace(/\=/g, "r")
+            mensagem = mensagem.replace(/\>/g, "s")
+            mensagem = mensagem.replace(/\§/g, "t")
+            mensagem = mensagem.replace(/\צ/g, "u")
+            mensagem = mensagem.replace(/\£/g, "v")
+            mensagem = mensagem.replace(/\</g, "w")
+            mensagem = mensagem.replace(/\|/g, "x")
+            mensagem = mensagem.replace(/\;/g, "y")
+            mensagem = mensagem.replace(/\{/g, "z")
+            mensagem = mensagem.replace(/\~/g, " ")
+            
+            mensagemDescriptografada.innerHTML = `<p>${mensagem}</p>`;
+        }
+
+        mensagemInseridaDescrip.addEventListener("input", function(){
+            Descriptografar(this.value)
+        })
+    </script>
 </body>
 </html>
